@@ -1,0 +1,50 @@
+Problem 2 : 
+class PartTimeStudent:
+    counter = 0  
+
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        PartTimeStudent.counter += 1  
+
+    @staticmethod
+    def count():
+        return PartTimeStudent.counter
+
+
+s1 = PartTimeStudent("John", "P001")
+s2 = PartTimeStudent("Jane", "P002")
+s3 = PartTimeStudent("Quan", "P005")
+s4 = PartTimeStudent("Vinh", "P003")
+
+print("Total Part-Time Students:", PartTimeStudent.count()) 
+
+
+Problem 3 : 
+
+class SchoolSystem:
+    def __init__(self):
+        self.students = []
+        self.lecturers = []
+    
+    def add_student(self, student):
+        if len(self.students) < 10:
+            self.students.append(student)
+    
+    def add_lecturer(self, lecturer):
+        if len(self.lecturers) < 10:
+            self.lecturers.append(lecturer)
+    
+    def list_students(self):
+        return [student.get_info() for student in self.students]
+    
+    def list_lecturers(self):
+        return [lecturer.get_info() for lecturer in self.lecturers]
+
+
+school = SchoolSystem()
+school.add_student(Student("Alice", 20, "S123"))
+school.add_lecturer(Lecturer("Dr. Bob", 45, "Computer Science"))
+
+print("Students:", school.list_students())
+print("Lecturers:", school.list_lecturers())
